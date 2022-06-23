@@ -2,12 +2,12 @@
 
 1. Run docker files
 	```
-	sysctl -w vm.max_map_count=262144
+	sudo sysctl -w vm.max_map_count=262144
 	docker compose up -d
 	```
 2. Verify that Elastic is up
 	```
-	$ sudo curl --cacert /var/lib/docker/volumes/elasticc-kibana_certs/_data/ca/ca.crt -u elastic https://localhost:9200
+	sudo curl --cacert /var/lib/docker/volumes/elasticc-kibana_certs/_data/ca/ca.crt -u elastic https://localhost:9200
 	Enter host password for user 'elastic':
 	{
 	  "name" : "es01",
