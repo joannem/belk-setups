@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 docker run -d \
 	--name="metricbeat-host" \
@@ -9,4 +9,4 @@ docker run -d \
 	--mount="type=bind,source=/,target=/hostfs,readonly" \
 	--net=host \
 	docker.elastic.co/beats/metricbeat:8.2.3 -e -system.hostfs=/hostfs
-  
+ 
