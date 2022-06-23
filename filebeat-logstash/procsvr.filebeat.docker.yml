@@ -1,0 +1,21 @@
+filebeat.inputs:
+- type: log
+  paths:
+    - /data/logstash-tutorial.log 
+
+output.logstash:
+  hosts: ["logstash:5044"]
+  ssl.certificate_authorities: 
+    - /etc/pki/ca/ca.crt
+
+setup:kibana:
+  host: 'https://kibana:5601'
+  username: elastic
+  password: password
+  ssl.certificate_authorities:
+    - /etc/pki/ca/ca.crt
+
+  ## TODO:
+  # ssl.certificate: "/etc/pki/client/cert.pem"
+  # ssl.key: "/etc/pki/client/cert.key"
+  
