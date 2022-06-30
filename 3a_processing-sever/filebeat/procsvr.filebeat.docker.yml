@@ -4,9 +4,7 @@ filebeat.inputs:
     - /data/tutorial-dataset.log 
 
 output.logstash:
-  hosts: ["https://logstash:5044"]
-  ssl.certificate_authorities: 
-    - /etc/pki/ca/ca.crt
+  hosts: ["logstash:5044"]
 
 setup:kibana:
   host: 'https://kibana:5601'
