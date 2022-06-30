@@ -7,7 +7,7 @@
 	```
 2. Verify that Elastic is up
 	```
-	sudo curl --cacert /var/lib/docker/volumes/elasticc-kibana_certs/_data/ca/ca.crt -u elastic https://localhost:9200
+	sudo curl --cacert /var/lib/docker/volumes/monitoring_network_certs/_data/ca/ca.crt -u elastic https://localhost:9200
 	Enter host password for user 'elastic':
 	{
 	  "name" : "es01",
