@@ -4,7 +4,7 @@ docker run -d \
 	--name=procsvr-filebeat \
 	--network=elasticc-kibana_default \
 	--volume="$(pwd)/procsvr.filebeat.docker.yml:/usr/share/filebeat/filebeat.yml:ro" \
-	--volume="$(pwd)/logstash-tutorial-dataset:/data/logstash-tutorial.log:ro" \
+	--volume="$(pwd)/tutorial-dataset:/data/tutorial-dataset.log:ro" \
 	--volume="elasticc-kibana_certs:/etc/pki:ro" \
 	docker.elastic.co/beats/filebeat:8.2.3 filebeat -e --strict.perms=false
 

@@ -1,7 +1,7 @@
 filebeat.inputs:
 - type: log
   paths:
-    - /data/logstash-tutorial.log 
+    - /data/tutorial-dataset.log 
 
 output.logstash:
   hosts: ["logstash:5044"]
