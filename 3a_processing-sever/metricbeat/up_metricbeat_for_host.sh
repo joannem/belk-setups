@@ -3,7 +3,7 @@
 docker run -d \
 	--name="metricbeat-host" \
 	--volume="$(pwd)/metricbeat.docker.yml:/usr/share/metricbeat/metricbeat.yml:ro" \
-	--volume="monitoring_network_certs:/etc/pki:ro" \
+	--volume="1_elasticc-kibana_certs:/etc/pki:ro" \
 	--mount type=bind,source=/proc,target=/hostfs/proc,readonly \
 	--mount="type=bind,source=/sys/fs/cgroup,target=/hostfs/sys/fs/cgroup,readonly" \
 	--mount="type=bind,source=/,target=/hostfs,readonly" \

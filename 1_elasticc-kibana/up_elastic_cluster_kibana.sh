@@ -1,14 +1,16 @@
 #!/bin/bash
 
 sudo sysctl -w vm.max_map_count=262144
-docker compose up -d
+
+docker network create monitoring_network && \
+docker compose up -d && \
 
 echo 'To verify run:
-sudo curl --cacert /var/lib/docker/volumes/monitoring_network_certs/_data/ca/ca.crt -u elastic https://localhost:9200'
+sudo curl --cacert /var/lib/docker/volumes/1_elasticc-kibana_certs/_data/ca/ca.crt -u elastic https://localhost:9200'
 
 echo ''
 echo 'You should have:
-Enter host password for user '"'elastic'"':
+Enter host password for user '"'elastic'"': <enter '"'password'"' here>
 {
   "name" : "es01",
   "cluster_name" : "docker-cluster",

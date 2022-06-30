@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo cp /var/lib/docker/volumes/monitoring_network_certs/_data/ca/ca.crt . && \
+sudo cp /var/lib/docker/volumes/1_elasticc-kibana_certs/_data/ca/ca.crt . && \
 
 docker run -d \
 	--name=logstash \
