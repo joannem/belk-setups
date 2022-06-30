@@ -43,3 +43,5 @@ networks:
   default:
     name: monitoring_network
     external: true
+
+# Original file take from: https://raw.githubusercontent.com/confluentinc/cp-all-in-one/7.0.1-post/cp-all-in-one/docker-compose.yml
