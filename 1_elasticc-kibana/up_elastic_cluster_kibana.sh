@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd $(dirname $0)
+
 sudo sysctl -w vm.max_map_count=262144
 
 docker network create monitoring_network && \
