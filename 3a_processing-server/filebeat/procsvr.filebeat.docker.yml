@@ -4,7 +4,11 @@ filebeat.inputs:
     - /data/tutorial-dataset.log 
 
 output.logstash:
-  hosts: ["logstash:5044"]
+  hosts: ["https://logstash:5044"]
+  ssl.certificate_authorities: 
+    - /etc/pki/ca/ca.crt
+  ssl.certificate: "/usr/share/filebeat/certs/procsvr-filebeat.pem"
+  ssl.key: "/usr/share/filebeat/certs/procsvr-filebeat.pkcs8.key"
 
 setup:kibana:
   host: 'https://kibana:5601'
@@ -13,7 +17,4 @@ setup:kibana:
   ssl.certificate_authorities:
     - /etc/pki/ca/ca.crt
 
-  ## TODO:
-  # ssl.certificate: "/etc/pki/client/cert.pem"
-  # ssl.key: "/etc/pki/client/cert.key"
   
