@@ -1,16 +1,18 @@
 #!/bin/bash
 
-cd $(dirname $0)
+cd $(dirname $0)/certs
 
+
+./../../1_elasticc-kibana/create_ssl_cert_key.sh logstash && \
 ./create_and_configure_elastic_api_key.sh && \
 
-docker run -d \
+cd ../
+docker run --rm -d \
 	--name=logstash \
 	--user=root \
 	--network=monitoring_network \
-	--volume="$(pwd)/logstash.docker.yml:/usr/share/logstash/config/logstash.yml:ro" \
-	--volume="$(pwd)/pipeline/:/usr/share/logstash/pipeline/:ro" \
-	--volume="1_elasticc-kibana_certs:/usr/share/logstash/certs:ro" \
+	--volume="$(pwd)/logstash.yml:/usr/share/logstash/config/logstash.yml:ro" \
+	--volume="$(pwd)/pipeline:/usr/share/logstash/pipeline:ro" \
+	--volume="$(pwd)/certs/logstash-certs:/usr/share/logstash/logstash-certs:ro" \
+	--volume="1_elasticc-kibana_certs:/usr/share/logstash/elasticsearch-certs:ro" \
 	docker.elastic.co/logstash/logstash:8.2.3
-
-# --volume="$(pwd)/../../3a_processing-server/filebeat/procsvr-filebeat-certs:/usr/share/logstash/procsvr-filebeat-certs/:ro" \
