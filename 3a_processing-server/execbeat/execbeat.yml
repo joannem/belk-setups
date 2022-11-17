@@ -1,0 +1,22 @@
+execbeat:
+  commands:
+    -
+      command: date
+      document_type: execbeat
+    -
+      command: echo
+      args: |
+        input memory cpu0: 52312/123123 (12%)
+        input memory cpu1: 52466/123123 (13%)
+        = asdfasdf =
+        memory cpu0: 1152312/123123 (90%)
+        memory cpu1: 1152312/123123 (90%)
+        memory cpu2: 62312/123123 (76%)
+        memory cpu3: 123123/123123 (100%)
+
+output.logstash:
+  hosts: ["logstash:5044"]
+  ssl.certificate_authorities:
+    - /usr/share/execbeat/elasticsearch-certs/ca/ca.crt
+  ssl.certificate: "/usr/share/execbeat/pf1-execbeat-certs/pf1-execbeat.crt"
+  ssl.key: "/usr/share/execbeat/pf1-execbeat-certs/pf1-execbeat.pkcs8.key"
