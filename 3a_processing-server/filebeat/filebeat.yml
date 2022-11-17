@@ -1,0 +1,12 @@
+filebeat.inputs:
+- type: filestream
+  id: pf1-core-logs
+  paths:
+    - /data/tutorial-dataset
+
+output.logstash:
+  hosts: ["logstash:5044"]
+  ssl.certificate_authorities: 
+    - /usr/share/filebeat/elasticsearch-certs/ca/ca.crt
+  ssl.certificate: "/usr/share/filebeat/pf1-filebeat-certs/pf1-filebeat.crt"
+  ssl.key: "/usr/share/filebeat/pf1-filebeat-certs/pf1-filebeat.pkcs8.key"
