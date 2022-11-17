@@ -1,2 +1,3 @@
 2_logstashc/certs/logstash-certs/
 3a_processing-server/filebeat/certs/pf1-filebeat-certs/
+3a_processing-server/metricbeat/certs/pf1-metricbeat-certs/

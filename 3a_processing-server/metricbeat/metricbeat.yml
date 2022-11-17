@@ -1,0 +1,36 @@
+metricbeat.config:
+  modules:
+    path: ${path.config}/modules.d/*.yml
+    reload.enabled: false
+
+metricbeat.modules:
+- module: system
+  metricsets:
+    - cpu             # CPU usage
+    - load            # CPU load averages
+    - memory          # Memory usage
+    - network         # Network IO
+    # - process         # Per process metrics
+    # - process_summary # Process summary
+    # - uptime          # System Uptime
+    # - socket_summary  # Socket summary
+    # - core           # Per CPU core usage
+    # - diskio         # Disk IO
+    # - filesystem     # File system usage for each mountpoint
+    # - fsstat         # File system summary metrics
+    # - raid           # Raid
+    # - socket         # Sockets and connection info (linux only)
+    # - service        # systemd service information
+  enabled: true
+  period: 10s
+  processes: ['.*']
+  hostfs: "/hostfs"
+  cpu.metrics:  ["percentages","normalized_percentages"]
+  core.metrics: ["percentages"]
+
+output.logstash:
+  hosts: ["logstash:5044"]
+  ssl.certificate_authorities: 
+    - /usr/share/metricbeat/elasticsearch-certs/ca/ca.crt
+  ssl.certificate: "/usr/share/metricbeat/pf1-metricbeat-certs/pf1-metricbeat.crt"
+  ssl.key: "/usr/share/metricbeat/pf1-metricbeat-certs/pf1-metricbeat.pkcs8.key"
