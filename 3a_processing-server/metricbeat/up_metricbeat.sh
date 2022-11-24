@@ -6,7 +6,7 @@ cd $(dirname $0)/certs && \
 ./../../../1_elasticc-kibana/create_ssl_cert_key.sh pf1-metricbeat && \
 
 cd ../
-docker run -d \
+docker run --rm -d \
 	--name="pf1-metricbeat" \
 	--network=monitoring_network \
 	--mount type=bind,source=/proc,target=/hostfs/proc,readonly \

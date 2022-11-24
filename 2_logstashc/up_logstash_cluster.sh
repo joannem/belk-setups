@@ -2,7 +2,7 @@
 
 cd $(dirname $0)/certs
 
-
+rm -rf logstash-certs/ && \
 ./../../1_elasticc-kibana/create_ssl_cert_key.sh logstash && \
 ./create_and_configure_elastic_api_key.sh && \
 
