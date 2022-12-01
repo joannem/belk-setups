@@ -2,7 +2,7 @@ filebeat.inputs:
 - type: filestream
   id: pf1-core-logs
   paths:
-    - /data/tutorial-dataset
+    - /data/logs/*
 
 output.logstash:
   hosts: ["logstash:5044"]

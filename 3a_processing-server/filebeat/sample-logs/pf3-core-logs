@@ -1,0 +1,17 @@
+1669284917 INFO port0 some other stuff here imiss 12345 (12/s)
+1669284917 INFO port1 some other stuff here imiss 222 (1/s)
+1669284917 INFO port2 some other stuff here imiss 1 (4/s)
+1669284917 INFO rx0 some stuff here qdrop 414 (12/s) rdrop 45645 (4/s) ldrop 111 (1/s)
+1669284917 INFO rx1 some stuff here qdrop 1212 (12/s) rdrop 54645 (3/s) ldrop 222 (2/s)
+1669284917 INFO rx2 some stuff here qdrop 141241 (12/s) rdrop 45645 (2/s) ldrop 2333 (3/s)
+1669284917 INFO tx0 some stuff here qdrop 124124 (12/s) rdrop 444 (1/s) ldrop 444 (4/s)
+1669284917 INFO cap 304444 Mb/s 55.5uu 12.0us
+1669284927 INFO port0 some other stuff here imiss 12465 (12/s)
+1669284927 INFO port1 some other stuff here imiss 232 (1/s)
+1669284927 INFO port2 some other stuff here imiss 41 (4/s)
+1669284927 INFO rx0 some stuff here qdrop 534 (12/s) rdrop 45690 (4/s) ldrop 121 (1/s)
+1669284927 INFO rx1 some stuff here qdrop 1312 (12/s) rdrop 54725 (3/s) ldrop 225 (2/s)
+1669284927 INFO rx2 some stuff here qdrop 141541 (12/s) rdrop 45775 (2/s) ldrop 2342 (3/s)
+1669284927 INFO tx0 some stuff here qdrop 124321 (12/s) rdrop 446 (1/s) ldrop 464 (4/s)
+1669284927 INFO cap 304466 Mb/s 55.5uu 12.0us
+...
