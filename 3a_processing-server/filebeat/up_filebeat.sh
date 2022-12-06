@@ -2,7 +2,7 @@
 
 cd $(dirname $0)/certs && \
 
-
+rm -rf pf1-filebeat-certs/ && \
 ./../../../1_elasticc-kibana/create_ssl_cert_key.sh pf1-filebeat && \
 
 cd ../
