@@ -42,21 +42,23 @@ if __name__ == '__main__':
     log_setup()
 
     stats = {
-        'imiss': [0, 0], 'nombuf': [0, 0], 'qdrop': [0, 0, 0, 0],
-        'omiss': 0, 'oqdrop': 0, 'cap': 0, 'xdrop': [0, 0, 0]
+        'rxpkts': [0, 0], 'imiss': [0, 0], 'nombuf': [0, 0], 'qdrop': [0, 0, 0, 0],
+        'txpkts': 0, 'omiss': 0, 'oqdrop': 0, 'cap': 0, 'xdrop': [0, 0, 0]
     }
 
     prev_delta = {
-        'imiss': [0, 0], 'nombuf': [0, 0], 'qdrop': [0, 0, 0, 0],
-        'omiss': 0, 'oqdrop': 0, 'xdrop': [0, 0, 0]
+        'rxpkts': [0, 0], 'imiss': [0, 0], 'nombuf': [0, 0], 'qdrop': [0, 0, 0, 0],
+        'txpkts': 0, 'omiss': 0, 'oqdrop': 0, 'xdrop': [0, 0, 0]
     }
 
     while not killer.kill_now:
 
-        logging.info('port0 some other stuff here imiss %u (%u/s) rx_nombuf %u (%u/s)' % (
-            stats['imiss'][0], prev_delta['imiss'][0], stats['nombuf'][0], prev_delta['nombuf'][0]))
-        logging.info('port1 some other stuff here imiss %u (%u/s) rx_nombuf %u (%u/s)' % (
-            stats['imiss'][1], prev_delta['imiss'][1], stats['nombuf'][1], prev_delta['nombuf'][1]))
+        logging.info('port0 %u (%u/s) some other stuff here imiss %u (%u/s) rx_nombuf %u (%u/s)' % (
+            stats['rxpkts'][0], prev_delta['rxpkts'][0], stats['imiss'][0], prev_delta['imiss'][0],
+            stats['nombuf'][0], prev_delta['nombuf'][0]))
+        logging.info('port1 %u (%u/s) some other stuff here imiss %u (%u/s) rx_nombuf %u (%u/s)' % (
+            stats['rxpkts'][1], prev_delta['rxpkts'][1], stats['imiss'][1], prev_delta['imiss'][1],
+            stats['nombuf'][1], prev_delta['nombuf'][1]))
         logging.info('rx0 some stuff here qdrop %u (%u/s)' % (
             stats['qdrop'][0], prev_delta['qdrop'][0]))
         logging.info('rx1 some stuff here qdrop %u (%u/s)' % (
@@ -65,8 +67,8 @@ if __name__ == '__main__':
             stats['qdrop'][2], prev_delta['qdrop'][2]))
         logging.info('rx3 some stuff here qdrop %u (%u/s)' % (
             stats['qdrop'][3], prev_delta['qdrop'][3]))
-        logging.info('port3 some other stuff here omiss %u (%u/s)' % (
-            stats['omiss'], prev_delta['omiss']))
+        logging.info('port3 %u (%u/s) some other stuff here omiss %u (%u/s)' % (
+            stats['txpkts'], prev_delta['txpkts'], stats['omiss'], prev_delta['omiss']))
         logging.info('tx0 some stuff here oqdrop %u (%u/s)' % (
             stats['oqdrop'], prev_delta['oqdrop']))
         logging.info(
@@ -75,6 +77,11 @@ if __name__ == '__main__':
             stats['xdrop'][0], prev_delta['xdrop'][0],
             stats['xdrop'][1], prev_delta['xdrop'][1],
             stats['xdrop'][2], prev_delta['xdrop'][2]))
+
+        prev_delta['rxpkts'][0] = random.randrange(20000, 400000, 123)
+        stats['rxpkts'][0] += prev_delta['rxpkts'][0]
+        prev_delta['rxpkts'][1] = random.randrange(20000, 400000, 111)
+        stats['rxpkts'][1] += prev_delta['rxpkts'][1]
 
         prev_delta['imiss'][0] = random.randrange(0, 1020, 7)
         stats['imiss'][0] += prev_delta['imiss'][0]
@@ -93,6 +100,9 @@ if __name__ == '__main__':
         stats['qdrop'][2] += prev_delta['qdrop'][2]
         prev_delta['qdrop'][3] = random.randrange(0, 10000, 1007)
         stats['qdrop'][3] += prev_delta['qdrop'][3]
+
+        prev_delta['txpkts'] = random.randrange(1000, 5000, 12)
+        stats['txpkts'] += prev_delta['txpkts']
 
         prev_delta['omiss'] = random.randrange(0, 10)
         stats['omiss'] += prev_delta['omiss']
