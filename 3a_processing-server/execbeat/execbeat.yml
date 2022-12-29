@@ -18,5 +18,5 @@ output.logstash:
   hosts: ["logstash:5044"]
   ssl.certificate_authorities:
     - /usr/share/execbeat/elasticsearch-certs/ca/ca.crt
-  ssl.certificate: "/usr/share/execbeat/pf1-execbeat-certs/pf1-execbeat.crt"
-  ssl.key: "/usr/share/execbeat/pf1-execbeat-certs/pf1-execbeat.pkcs8.key"
+  ssl.certificate: "/usr/share/execbeat/execbeat-certs/execbeat.crt"
+  ssl.key: "/usr/share/execbeat/execbeat-certs/execbeat.pkcs8.key"

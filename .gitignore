@@ -1,5 +1,5 @@
 2_logstashc/certs/logstash-certs/
-3a_processing-server/filebeat/certs/pf1-filebeat-certs/
-3a_processing-server/metricbeat/certs/pf1-metricbeat-certs/
-3a_processing-server/execbeat/certs/pf1-execbeat-certs/
+3a_processing-server/filebeat/certs/*-filebeat-certs/
+3a_processing-server/metricbeat/certs/*-metricbeat-certs/
+3a_processing-server/execbeat/certs/*-execbeat-certs/
 3a_processing-server/filebeat/sample-logs/pf3.log*

@@ -32,5 +32,5 @@ output.logstash:
   hosts: ["logstash:5044"]
   ssl.certificate_authorities: 
     - /usr/share/metricbeat/elasticsearch-certs/ca/ca.crt
-  ssl.certificate: "/usr/share/metricbeat/pf1-metricbeat-certs/pf1-metricbeat.crt"
-  ssl.key: "/usr/share/metricbeat/pf1-metricbeat-certs/pf1-metricbeat.pkcs8.key"
+  ssl.certificate: "/usr/share/metricbeat/metricbeat-certs/metricbeat.crt"
+  ssl.key: "/usr/share/metricbeat/metricbeat-certs/metricbeat.pkcs8.key"
