@@ -92,11 +92,11 @@ if __name__ == '__main__':
         prev_delta['nombuf'][1] = random.randrange(0, 15, 7)
         stats['nombuf'][1] += prev_delta['nombuf'][1]
 
-        prev_delta['qdrop'][0] = random.randrange(0, 20000, 1007)
+        prev_delta['qdrop'][0] = random.randrange(0, 10000, 111)
         stats['qdrop'][0] += prev_delta['qdrop'][0]
         prev_delta['qdrop'][1] = random.randrange(100, 1000, 12)
         stats['qdrop'][1] += prev_delta['qdrop'][1]
-        prev_delta['qdrop'][2] = random.randrange(2000, 30000, 1007)
+        prev_delta['qdrop'][2] = random.randrange(50, 10000, 33)
         stats['qdrop'][2] += prev_delta['qdrop'][2]
         prev_delta['qdrop'][3] = random.randrange(0, 10000, 1007)
         stats['qdrop'][3] += prev_delta['qdrop'][3]
