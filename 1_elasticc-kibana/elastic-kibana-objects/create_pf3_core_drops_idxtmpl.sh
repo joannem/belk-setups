@@ -29,25 +29,25 @@ curl -k -uelastic -X PUT https://localhost:9200/_index_template/pf3-core-drops -
         "perc-rx-imiss-ps": {
           "type": "double",
           "script": {
-            "source": "emit(doc['\''rx-imiss-ps.avg'\''].value / doc['\''rx-pkts-ps.avg'\''].value * 100)"
+            "source": "if (doc['\''rx-imiss-ps.avg'\''].size() != 0 && doc['\''rx-pkts-ps.avg'\''].size() != 0) emit(doc['\''rx-imiss-ps.avg'\''].value / doc['\''rx-pkts-ps.avg'\''].value * 100)"
           }
         },
         "perc-rx-nombuf-ps": {
           "type": "double",
           "script": {
-            "source": "emit(doc['\''rx-nombuf-ps.avg'\''].value / doc['\''rx-pkts-ps.avg'\''].value * 100)"
+            "source": "if (doc['\''rx-nombuf-ps.avg'\''].size() != 0 && doc['\''rx-pkts-ps.avg'\''].size() != 0) emit(doc['\''rx-nombuf-ps.avg'\''].value / doc['\''rx-pkts-ps.avg'\''].value * 100)"
           }
         },
         "perc-rx-qdrop-ps": {
           "type": "double",
           "script": {
-            "source": "emit(doc['\''rx-qdrop-ps.avg'\''].value / doc['\''rx-pkts-ps.avg'\''].value * 100)"
+            "source": "if (doc['\''rx-qdrop-ps.avg'\''].size() != 0 && doc['\''rx-pkts-ps.avg'\''].size() != 0) emit(doc['\''rx-qdrop-ps.avg'\''].value / doc['\''rx-pkts-ps.avg'\''].value * 100)"
           }
         },
         "perc-tot-drops-ps": {
           "type": "double",
           "script": {
-            "source": "emit((doc['\''rx-imiss-ps.avg'\''].value + doc['\''rx-nombuf-ps.avg'\''].value + doc['\''rx-qdrop-ps.avg'\''].value) / doc['\''rx-pkts-ps.avg'\''].value * 100)"
+            "source": "if (doc['\''rx-imiss-ps.avg'\''].size() != 0 && doc['\''rx-nombuf-ps.avg'\''].size() != 0 && doc['\''rx-qdrop-ps.avg'\''].size() != 0 && doc['\''rx-pkts-ps.avg'\''].size() != 0) emit((doc['\''rx-imiss-ps.avg'\''].value + doc['\''rx-nombuf-ps.avg'\''].value + doc['\''rx-qdrop-ps.avg'\''].value) / doc['\''rx-pkts-ps.avg'\''].value * 100)"
           }
         }
       }
