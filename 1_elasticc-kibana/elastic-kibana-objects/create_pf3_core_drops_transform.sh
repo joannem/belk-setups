@@ -14,19 +14,19 @@ curl -k -uelastic -X PUT https://localhost:9200/_transform/pf3-core-drops -H 'Co
       "@timestamp": { "date_histogram": { "field": "@timestamp", "calendar_interval": "1m" } }
     },
     "aggregations": {
-      "rx-pkts-ps.sum": { "sum": { "field": "rx-pkts-ps" } },
-      "rx-imiss-ps.sum": { "sum": { "field": "rx-imiss-ps" } },
-      "rx-nombuf-ps.sum": { "sum": { "field": "rx-nombuf" } },
-      "rx-qdrop-ps.sum": { "sum": { "field": "rx-qdrop" } },
-      "tx-omiss-ps.sum": { "sum": { "field": "tx-omiss" } },
-      "tx-oqdrop-ps.sum": { "sum": { "field": "tx-oqdrop" } },
-      "fdrop-ps.sum": { "sum": { "field": "fdrop" } },
-      "rdrop-ps.sum": { "sum": { "field": "rdrop" } },
-      "ldrop-ps.sum": { "sum": { "field": "ldrop" } },
+      "rx-pkts-ps.avg": { "avg": { "field": "rx-pkts-ps" } },
+      "rx-imiss-ps.avg": { "avg": { "field": "rx-imiss-ps" } },
+      "rx-nombuf-ps.avg": { "avg": { "field": "rx-nombuf-ps" } },
+      "rx-qdrop-ps.avg": { "avg": { "field": "rx-qdrop-ps" } },
+      "tx-omiss-ps.avg": { "avg": { "field": "tx-omiss-ps" } },
+      "tx-oqdrop-ps.avg": { "avg": { "field": "tx-oqdrop-ps" } },
+      "fdrop-ps.avg": { "avg": { "field": "fdrop-ps" } },
+      "rdrop-ps.avg": { "avg": { "field": "rdrop-ps" } },
+      "ldrop-ps.avg": { "avg": { "field": "ldrop-ps" } },
       "rx-mbps.avg": { "avg": { "field": "rx-mbps" } }
     }
   },
-  "description": "Sum of all drops across all interfaces within a log segment per pf3",
+  "description": "Avg of all drops across all interfaces within a log segment per pf3",
   "dest": {
     "index": "pf3-core-drops"
   },
